@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCII Components — Demo</title>
+  <style>
+    /* ================================
+       Demo page styles only
+       ================================ */
+    :root {
+      /* Override any theme tokens here */
+      --dcii-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--dcii-font-family);
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+
+    .demo {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .demo__title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .demo__subtitle {
+      color: #666;
+      margin-bottom: 3rem;
+    }
+
+    .demo__section {
+      margin-bottom: 4rem;
+    }
+
+    .demo__section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+      border-bottom: 2px solid #d6a64c;
+      padding-bottom: 0.5rem;
+    }
+
+    .demo__section h2 code {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #888;
+    }
+
+    .demo__section p.demo__desc {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo__card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .demo__card-content strong {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="demo">
+    <h1 class="demo__title">DCII Components</h1>
+    <p class="demo__subtitle">Accessible, themeable web component library — WCAG 2.2 AA</p>
+
+    <!-- ================================
+         1. ACCORDION
+         ================================ -->
+    <section class="demo__section">
+      <h2>Accordion <code>&lt;dcii-accordion&gt;</code></h2>
+      <p class="demo__desc">
+        Keyboard: Enter/Space to toggle, Arrow Up/Down between items, Home/End.
+      </p>
+
+      <dcii-accordion>
+        <dcii-accordion-item>
+          <span slot="header">What is this component library?</span>
+          <p>
+            DCII Components is a collection of accessible, themeable web components built
+            as custom elements with Shadow DOM. Each component follows WCAG 2.2 AA
+            guidelines and can be styled via CSS custom properties.
+          </p>
+        </dcii-accordion-item>
+        <dcii-accordion-item>
+          <span slot="header">How do I install it?</span>
+          <p>
+            Include the library via a script tag or import the ES module. All components
+            register themselves automatically — just use the HTML tags.
+          </p>
+        </dcii-accordion-item>
+        <dcii-accordion-item>
+          <span slot="header">Can I customize the styling?</span>
+          <p>
+            Yes. Every component exposes CSS custom properties (tokens) that you can
+            override on <code>:root</code> or on the component element itself.
+          </p>
+        </dcii-accordion-item>
+        <dcii-accordion-item>
+          <span slot="header">Is it accessible?</span>
+          <p>
+            All components meet WCAG 2.2 AA requirements including keyboard navigation,
+            ARIA attributes, focus management, screen reader announcements, and
+            prefers-reduced-motion support.
+          </p>
+        </dcii-accordion-item>
+      </dcii-accordion>
+    </section>
+
+    <!-- ================================
+         2. MODAL
+         ================================ -->
+    <section class="demo__section">
+      <h2>Modal <code>&lt;dcii-modal&gt;</code></h2>
+      <p class="demo__desc">
+        Focus trap, Escape to close, backdrop click to close, returns focus to trigger.
+      </p>
+
+      <dcii-modal>
+        <span slot="trigger">Open Demo Modal</span>
+        <span slot="title">Welcome to DCII Components</span>
+        <p>
+          This modal traps focus so keyboard-only users can navigate within it.
+          Press <kbd>Escape</kbd> or click the backdrop to close.
+        </p>
+        <button slot="footer" onclick="this.closest('dcii-modal').open = false">
+          Close
+        </button>
+      </dcii-modal>
+    </section>
+
+    <!-- ================================
+         3. TABS
+         ================================ -->
+    <section class="demo__section">
+      <h2>Tabs <code>&lt;dcii-tabs&gt;</code></h2>
+      <p class="demo__desc">
+        Keyboard: Arrow Left/Right to switch tabs, Home/End, Tab to enter panel.
+      </p>
+
+      <dcii-tabs>
+        <dcii-tab label="Overview">
+          <h3>Overview</h3>
+          <p>
+            DCII Components provides six production-ready web components. Each one
+            is framework-agnostic, works with vanilla HTML, and requires no build step.
+          </p>
+        </dcii-tab>
+        <dcii-tab label="Installation">
+          <h3>Installation</h3>
+          <p>
+            Add a single script tag to your page. All custom elements will register
+            automatically and be ready to use in your markup.
+          </p>
+          <pre><code>&lt;script type="module" src="dcii-components/src/index.js"&gt;&lt;/script&gt;</code></pre>
+        </dcii-tab>
+        <dcii-tab label="Theming">
+          <h3>Theming</h3>
+          <p>
+            Override CSS custom properties on <code>:root</code> or on individual
+            component instances. Every visual property — colors, spacing, radii,
+            transitions — is controlled by a token.
+          </p>
+        </dcii-tab>
+      </dcii-tabs>
+    </section>
+
+    <!-- ================================
+         4. IMAGE SLIDER
+         ================================ -->
+    <section class="demo__section">
+      <h2>Image Slider <code>&lt;dcii-image-slider&gt;</code></h2>
+      <p class="demo__desc">
+        Keyboard: Arrow Left/Right, Home/End. Autoplay pauses on hover/focus.
+      </p>
+
+      <dcii-image-slider autoplay interval="5000">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=600&fit=crop" alt="Mountain range at sunset">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&h=600&fit=crop" alt="Misty forest valley">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=600&fit=crop" alt="Sunlight through forest canopy">
+      </dcii-image-slider>
+    </section>
+
+    <!-- ================================
+         5. CARD SLIDER
+         ================================ -->
+    <section class="demo__section">
+      <h2>Card Slider <code>&lt;dcii-card-slider&gt;</code></h2>
+      <p class="demo__desc">
+        Keyboard: Arrow Left/Right. Shows multiple cards, navigates one at a time.
+      </p>
+
+      <dcii-card-slider>
+        <div class="demo__card-content">
+          <strong>Sarah Johnson</strong>
+          <p>Senior developer with 10 years of experience in modern web technologies and team leadership.</p>
+        </div>
+        <div class="demo__card-content">
+          <strong>Michael Chen</strong>
+          <p>UX designer and front-end developer with a keen eye for detail and intuitive interfaces.</p>
+        </div>
+        <div class="demo__card-content">
+          <strong>Emily Rodriguez</strong>
+          <p>Product manager who bridges the gap between technical teams and business goals.</p>
+        </div>
+        <div class="demo__card-content">
+          <strong>David Kim</strong>
+          <p>Full-stack engineer known for innovative solutions and performance optimization.</p>
+        </div>
+        <div class="demo__card-content">
+          <strong>Jessica Martinez</strong>
+          <p>QA lead with meticulous attention to detail and comprehensive testing strategies.</p>
+        </div>
+      </dcii-card-slider>
+    </section>
+
+    <!-- ================================
+         6. LIGHTBOX
+         ================================ -->
+    <section class="demo__section">
+      <h2>Gallery Lightbox <code>&lt;dcii-lightbox&gt;</code></h2>
+      <p class="demo__desc">
+        Click an image to open. Keyboard: Arrow Left/Right, Escape to close. Focus trapped.
+      </p>
+
+      <dcii-lightbox columns="3">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop" alt="Tropical beach with turquoise water">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=600&fit=crop" alt="Lakeside view with mountains at sunset">
+        <img src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=800&h=600&fit=crop" alt="Ocean waves at golden hour">
+        <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=800&h=600&fit=crop" alt="Foggy mountain road">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&h=600&fit=crop" alt="Calm lake at dusk">
+        <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&h=600&fit=crop" alt="Golden field at sunrise">
+      </dcii-lightbox>
+    </section>
+  </main>
+
+    <script src="../dist/dcii-components.min.js"></script>
+</body>
+
+</html>

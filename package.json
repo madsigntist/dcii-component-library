@@ -1,0 +1,29 @@
+{
+  "name": "dcii-components",
+  "version": "0.1.0",
+  "description": "Accessible, themeable web component library",
+  "type": "module",
+  "main": "src/index.js",
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "esbuild src/index.js --bundle --minify --format=iife --outfile=dist/dcii-components.min.js",
+    "build:dev": "esbuild src/index.js --bundle --format=iife --outfile=dist/dcii-components.js"
+  },
+  "keywords": [
+    "web-components",
+    "accessible",
+    "wcag",
+    "accordion",
+    "modal",
+    "tabs",
+    "slider",
+    "lightbox"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
