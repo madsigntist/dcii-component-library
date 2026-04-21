@@ -4,22 +4,24 @@ Accessible, themeable web component library. Zero dependencies, framework-agnost
 
 ## Components
 
-| Component | Tag | Description |
-|---|---|---|
-| Accordion | `<dcii-accordion>` | Expandable FAQ / collapsible sections |
-| Modal | `<dcii-modal>` | Dialog with focus trap and backdrop |
-| Tabs | `<dcii-tabs>` | Tabbed content panels |
-| Image Slider | `<dcii-image-slider>` | Carousel with autoplay, dots, arrows |
-| Card Slider | `<dcii-card-slider>` | Horizontal card carousel |
-| Lightbox | `<dcii-lightbox>` | Gallery grid with fullscreen viewer |
+| Component    | Tag                   | Description                           |
+| ------------ | --------------------- | ------------------------------------- |
+| Accordion    | `<dcii-accordion>`    | Expandable FAQ / collapsible sections |
+| Modal        | `<dcii-modal>`        | Dialog with focus trap and backdrop   |
+| Tabs         | `<dcii-tabs>`         | Tabbed content panels                 |
+| Image Slider | `<dcii-image-slider>` | Carousel with autoplay, dots, arrows  |
+| Card Slider  | `<dcii-card-slider>`  | Horizontal card carousel              |
+| Lightbox     | `<dcii-lightbox>`     | Gallery grid with fullscreen viewer   |
 
 ## Quick Start
 
+Add one script tag to your page — all `<dcii-*>` custom elements register automatically.
+
 ```html
-<script type="module" src="dcii-components/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/madsigntist/dcii-component-library@v0.1.0/dist/dcii-components.min.js"></script>
 ```
 
-All `<dcii-*>` custom elements register automatically on import.
+Pin to a specific version (e.g. `@v0.1.0`) so updates never break your site.
 
 ## Usage
 
@@ -34,10 +36,10 @@ All `<dcii-*>` custom elements register automatically on import.
 </dcii-accordion>
 ```
 
-| Attribute | Element | Description |
-|---|---|---|
-| `multiple` | `<dcii-accordion>` | Allow multiple items open simultaneously |
-| `open` | `<dcii-accordion-item>` | Default open state |
+| Attribute  | Element                 | Description                              |
+| ---------- | ----------------------- | ---------------------------------------- |
+| `multiple` | `<dcii-accordion>`      | Allow multiple items open simultaneously |
+| `open`     | `<dcii-accordion-item>` | Default open state                       |
 
 ### Modal
 
@@ -50,11 +52,11 @@ All `<dcii-*>` custom elements register automatically on import.
 </dcii-modal>
 ```
 
-| Attribute | Description |
-|---|---|
-| `trigger-text` | Fallback trigger button label (if no `slot="trigger"`) |
-| `open` | Reflects open state — set to open/close programmatically |
-| `no-backdrop` | Disable backdrop click-to-close |
+| Attribute      | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `trigger-text` | Fallback trigger button label (if no `slot="trigger"`)   |
+| `open`         | Reflects open state — set to open/close programmatically |
+| `no-backdrop`  | Disable backdrop click-to-close                          |
 
 ### Tabs
 
@@ -69,16 +71,16 @@ All `<dcii-*>` custom elements register automatically on import.
 
 ```html
 <dcii-image-slider autoplay interval="5000">
-  <img src="photo1.jpg" alt="Description">
-  <img src="photo2.jpg" alt="Description">
+  <img src="photo1.jpg" alt="Description" />
+  <img src="photo2.jpg" alt="Description" />
 </dcii-image-slider>
 ```
 
-| Attribute | Description |
-|---|---|
-| `autoplay` | Enable auto-advance |
+| Attribute  | Description                                  |
+| ---------- | -------------------------------------------- |
+| `autoplay` | Enable auto-advance                          |
 | `interval` | Milliseconds between slides (default `5000`) |
-| `no-loop` | Disable wrapping at ends |
+| `no-loop`  | Disable wrapping at ends                     |
 
 ### Card Slider
 
@@ -93,15 +95,15 @@ All `<dcii-*>` custom elements register automatically on import.
 
 ```html
 <dcii-lightbox columns="3">
-  <img src="photo1.jpg" alt="Description">
-  <img src="photo2.jpg" alt="Description">
+  <img src="photo1.jpg" alt="Description" />
+  <img src="photo2.jpg" alt="Description" />
 </dcii-lightbox>
 ```
 
 Use `data-full` on images to specify a separate full-resolution source:
 
 ```html
-<img src="thumb.jpg" data-full="full-res.jpg" alt="Description">
+<img src="thumb.jpg" data-full="full-res.jpg" alt="Description" />
 ```
 
 ## Theming
@@ -183,13 +185,13 @@ All internal class names follow **BEM** (Block Element Modifier):
 
 ## Events
 
-| Event | Component | Detail |
-|---|---|---|
-| `dcii-accordion-toggle` | Accordion Item | `{ item, open }` |
-| `dcii-modal-open` | Modal | — |
-| `dcii-modal-close` | Modal | — |
-| `dcii-tab-change` | Tabs | `{ index, label }` |
-| `dcii-slide-change` | Image Slider | `{ index, total }` |
+| Event                   | Component      | Detail             |
+| ----------------------- | -------------- | ------------------ |
+| `dcii-accordion-toggle` | Accordion Item | `{ item, open }`   |
+| `dcii-modal-open`       | Modal          | —                  |
+| `dcii-modal-close`      | Modal          | —                  |
+| `dcii-tab-change`       | Tabs           | `{ index, label }` |
+| `dcii-slide-change`     | Image Slider   | `{ index, total }` |
 
 ## Browser Support
 
