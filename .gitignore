@@ -1,2 +1,5 @@
 # Dependencies
 node_modules/
+
+# Local reference
+how-to-release.txt
