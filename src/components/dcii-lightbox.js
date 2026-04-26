@@ -55,8 +55,20 @@ template.innerHTML = `
   /* ---- Gallery grid ---- */
   .lightbox__grid {
     display: grid;
-    grid-template-columns: repeat(var(--dcii-lightbox-columns, 3), 1fr);
+    grid-template-columns: 1fr;
     gap: var(--dcii-lightbox-gap, 1rem);
+  }
+
+  @media (min-width: 480px) {
+    .lightbox__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .lightbox__grid {
+      grid-template-columns: repeat(var(--dcii-lightbox-columns, 3), 1fr);
+    }
   }
 
   .lightbox__grid-item {
@@ -481,7 +493,8 @@ class DciiLightbox extends HTMLElement {
   }
 
   #prev = () => {
-    const prev = (this.#current - 1 + this.#sources.length) % this.#sources.length;
+    const prev =
+      (this.#current - 1 + this.#sources.length) % this.#sources.length;
     this.#goTo(prev);
   };
 
